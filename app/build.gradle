@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+apply plugin: 'mysqlautobean.plugin'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.openxu.plugin"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+beanDataSource{
+    driver = "com.mysql.cj.jdbc.Driver"
+    url = "jdbc:mysql://114.115.144.251:33061/iipplat_exam?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&useCursorFetch=true&defaultFetchSize=1000"
+    userName = "root"
+    password = "111aaa***"
+    packageName = "com.openxu.autobean"   //实体类输出目录
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+
+
+}
+

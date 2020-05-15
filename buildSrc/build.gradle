@@ -1,0 +1,41 @@
+apply plugin: 'groovy'
+apply plugin: 'java'
+sourceCompatibility = 1.8
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
+repositories {
+    mavenCentral()
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+tasks.withType(GroovyCompile) {
+    options.encoding = "UTF-8"
+}
+dependencies{
+    // https://mvnrepository.com/artifact/org.apache.velocity/velocity
+    implementation group: 'org.apache.velocity', name: 'velocity', version: '1.7'
+    //https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.20'
+}
+
+//插件发布
+apply plugin: 'maven-publish'
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = "msyql.auto.javabean"
+            artifactId = "plugin"
+            version = "1.0.0"
+            from components.java
+        }
+    }
+    //配置仓库目录
+    repositories {
+        maven {
+            url uri('../repos')
+        }
+    }
+}

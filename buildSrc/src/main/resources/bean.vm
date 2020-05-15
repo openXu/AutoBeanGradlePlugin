@@ -1,0 +1,17 @@
+package ${packageName};
+
+import lombok.Data;
+
+/**
+* Author: openXu
+* Time: ${time}
+* class: ${className}
+* Description:
+*/
+@Data
+public class  ${className} {
+
+#foreach($columnProperty in $columns)
+    private ${columnProperty.fieldType} ${columnProperty.fieldName};
+#end
+}
