@@ -5,7 +5,7 @@
 
 **相关链接**
 
-**[博客讲解](https://openxu.blog.csdn.net/article/details/106146211)**
+**[博客讲解](https://openxu.blog.csdn.net/article/details/106230849)**
 
 **[《Gradle深度揭秘》](https://edu.csdn.net/course/detail/25346)**
 
